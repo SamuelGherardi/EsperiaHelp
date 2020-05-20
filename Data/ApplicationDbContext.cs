@@ -12,5 +12,8 @@ namespace EsperiaHelp.Data
             : base(options)
         {
         }
+
+        public DbSet<EsperiaHelp.Models.Classroom> Classroom { get; set; }
+        public DbSet<EsperiaHelp.Models.Subject> Subject { get; set; }
     }
 }
