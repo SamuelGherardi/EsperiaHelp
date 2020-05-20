@@ -12,6 +12,7 @@ using EsperiaHelp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using EsperiaHelp.Models;
 
 namespace EsperiaHelp
 {
@@ -28,9 +29,10 @@ namespace EsperiaHelp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()   //Aggiunge i ruoli
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
         }
