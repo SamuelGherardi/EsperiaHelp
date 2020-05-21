@@ -35,7 +35,7 @@ namespace EsperiaHelp.Migrations
                     table.PrimaryKey("PK_Class", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+           /* migrationBuilder.CreateTable(
                 name: "Subject",
                 columns: table => new
                 {
@@ -46,7 +46,7 @@ namespace EsperiaHelp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Subject", x => x.Id);
-                });
+                });*/
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -267,8 +267,8 @@ namespace EsperiaHelp.Migrations
             migrationBuilder.DropTable(
                 name: "Class");
 
-            migrationBuilder.DropTable(
-                name: "Subject");
+            /*migrationBuilder.DropTable(
+                name: "Subject");*/
         }
     }
 }

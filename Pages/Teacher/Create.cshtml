@@ -1,0 +1,49 @@
+﻿@page
+@model EsperiaHelp.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Lesson</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Lesson.Date" class="control-label"></label>
+                <input asp-for="Lesson.Date" class="form-control" />
+                <span asp-validation-for="Lesson.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lesson.StartTime" class="control-label"></label>
+                <input asp-for="Lesson.StartTime" class="form-control" />
+                <span asp-validation-for="Lesson.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lesson.EndTime" class="control-label"></label>
+                <input asp-for="Lesson.EndTime" class="form-control" />
+                <span asp-validation-for="Lesson.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lesson.N_participants" class="control-label"></label>
+                <input asp-for="Lesson.N_participants" class="form-control" />
+                <span asp-validation-for="Lesson.N_participants" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
