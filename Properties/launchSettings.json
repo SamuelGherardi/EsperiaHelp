@@ -19,6 +19,7 @@
     "EsperiaHelp": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "http://localhost:37088/Default",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

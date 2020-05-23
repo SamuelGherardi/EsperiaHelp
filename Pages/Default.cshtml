@@ -11,12 +11,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Esperia Help</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
+        <h1 class="display-4">Benvenuti in Esperia Help</h1>
     </div>
-    <a class="nav-link text-dark" asp-area="" asp-page="/Teacher/Index">Lessons</a>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <form class="text-center col-sm-3 border border-info pt-2 pb-2">
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Email</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">@@</div>
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Inserisci la tua email">
+            </div>
+        </div>
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Password</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                </div>
+                <input type="password" class="form-control" id="inlineFormInputGroup" placeholder="Inserisci una password">
+                <small id="passwordHelp" class="form-text text-muted" style="color: red;">Scegli una password difficile da scoprire.</small>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Iscriviti</button>
+    </form>
 </body>
 </html>
