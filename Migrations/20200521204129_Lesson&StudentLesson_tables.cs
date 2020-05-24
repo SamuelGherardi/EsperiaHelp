@@ -31,7 +31,7 @@ namespace EsperiaHelp.Migrations
                     StartTime = table.Column<DateTime>(nullable: false),
                     EndTime = table.Column<DateTime>(nullable: false),
                     N_participants = table.Column<int>(nullable: false),
-                    ApplicationUserId = table.Column<string>(nullable: true),
+                    ApplicationUserId = table.Column<string>(maxLength: 128, nullable: true),
                     ClassroomId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -57,7 +57,7 @@ namespace EsperiaHelp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ApplicationUserId = table.Column<string>(nullable: true),
+                    ApplicationUserId = table.Column<string>(maxLength: 128, nullable: true),
                     LessonId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

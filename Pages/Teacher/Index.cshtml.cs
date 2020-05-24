@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EsperiaHelp
 {
-    [Authorize(Roles ="teacher")] //solamente gli insegnanti possono accedere a questa classe
+    [Authorize(Roles = "teacher")] //solamente gli insegnanti possono accedere a questa classe
     public class IndexModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;
