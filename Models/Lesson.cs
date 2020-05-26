@@ -28,9 +28,11 @@ namespace EsperiaHelp.Models
         public int N_participants { get; set; } //numero partecipanti alll'incontro
 
         [Display(Name = "Teacher")]
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; } //identificativo docente dell'incontro
 
         [Display(Name = "Classroom")]
+        public int ClassroomId { get; set; }
         public Classroom Classroom { get; set; } //identificativo dell'aula dove si svolgerà l'incontro
     }
 }

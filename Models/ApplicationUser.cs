@@ -12,8 +12,13 @@ namespace EsperiaHelp.Models
 
         public string Surname { get; set; }     //Cognome utente
 
-        public Subject Subject { get; set; }    //per i docenti (per studenti il valore sarà null)
+        public int SubjectId { get; set; }
 
+        public Subject Subject{ get; set; }    //per i docenti (per studenti il valore sarà null)
+
+        public int ClassId { get; set; }
         public Class Class { get; set; }        //per studenti
+
+        public ICollection<Lesson> lessons;
     }
 }

@@ -10,5 +10,7 @@ namespace EsperiaHelp.Models
         public int Id { get; set; } //chiave primaria che identifica univocamente un'aula
 
         public string Name { get; set; } //nome dell'aula
+        
+        public ICollection<Lesson> lessons;
     }
 }

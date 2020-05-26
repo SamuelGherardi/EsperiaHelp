@@ -3,14 +3,16 @@ using System;
 using EsperiaHelp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EsperiaHelp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200526185030_ModifyingFK")]
+    partial class ModifyingFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,7 +136,7 @@ namespace EsperiaHelp.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
-                    b.Property<int>("ClassroomId")
+                    b.Property<int?>("ClassroomId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -348,9 +350,7 @@ namespace EsperiaHelp.Migrations
 
                     b.HasOne("EsperiaHelp.Models.Classroom", "Classroom")
                         .WithMany()
-                        .HasForeignKey("ClassroomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClassroomId");
                 });
 
             modelBuilder.Entity("EsperiaHelp.Models.StudentLesson", b =>

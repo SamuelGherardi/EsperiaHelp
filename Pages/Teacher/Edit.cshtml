@@ -21,19 +21,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Lesson.StartTime" class="control-label"></label>
-                <input asp-for="Lesson.StartTime" class="form-control" />
+                <input type="time" asp-for="Lesson.StartTime" class="form-control" />
                 <span asp-validation-for="Lesson.StartTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Lesson.EndTime" class="control-label"></label>
-                <input asp-for="Lesson.EndTime" class="form-control" />
+                <input type="time" asp-for="Lesson.EndTime" class="form-control" />
                 <span asp-validation-for="Lesson.EndTime" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Lesson.N_participants" class="control-label"></label>
-                <input asp-for="Lesson.N_participants" class="form-control" />
-                <span asp-validation-for="Lesson.N_participants" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

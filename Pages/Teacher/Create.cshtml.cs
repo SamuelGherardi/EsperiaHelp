@@ -8,37 +8,67 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using EsperiaHelp.Data;
 using EsperiaHelp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace EsperiaHelp
 {
-    [Authorize(Roles = "teacher")] //solamente gli insegnanti possono accedere a questa classe
+    [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
     public class CreateModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager; //questa variabile serve per poter sapere quale è l'utente che in questo momento è loggato
 
-        public CreateModel(EsperiaHelp.Data.ApplicationDbContext context)
+        public CreateModel(EsperiaHelp.Data.ApplicationDbContext context, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
+        
+        public SelectList Classrooms { get; set; } //elementi per poter mostrare all'insegnante la lista delle classi disponibili per l'incontro
+        [BindProperty(SupportsGet = true)]
+        public string ClassroomLesson { get; set; }
 
-        public IActionResult OnGet()
+
+        public async Task <IActionResult> OnGetAsync()
         {
+            IQueryable<string> classroomQuery = from m in _context.Classroom  //Query per l'aula
+                                              orderby m.Name
+                                              select m.Name;
+            Classrooms = new SelectList(await classroomQuery.Distinct().ToListAsync());
+
             return Page();
         }
 
         [BindProperty]
         public Lesson Lesson { get; set; }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
+        
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
+            ApplicationUser user = null;
+            user = await _userManager.GetUserAsync(User);
+            if (user.Id == null)
+            {
+                return NotFound();
+            }
+            Lesson.ApplicationUserId= user.Id; //La lezione che viene creata dall'insegnante avrà il suo Identificativo
+            foreach(var item in _context.Classroom)
+            {
+                if (ClassroomLesson == item.Name)
+                {
+                    Lesson.ClassroomId = item.Id; //La lezione che viene creata dall'insegnante contiene la FK dell'aula dove si svolgerà
+                }
+            }
+            
+            
             _context.Lesson.Add(Lesson);
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

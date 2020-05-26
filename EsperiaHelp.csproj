@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200521203600_Lesson&amp;StudentLesson_tables.cs" />
     <Compile Remove="Migrations\20200521203600_Lesson&amp;StudentLesson_tables.Designer.cs" />
+    <Compile Remove="Migrations\20200526183810_ModifyingFK.cs" />
+    <Compile Remove="Migrations\20200526183810_ModifyingFK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

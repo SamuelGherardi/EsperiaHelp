@@ -10,5 +10,6 @@ namespace EsperiaHelp.Models
         public int Id { get; set; } //chiave primaria che identifica univocamente una classe
 
         public string Name { get; set; } //nome della classe
+        public ICollection<ApplicationUser> applicationUsers;
     }
 }
