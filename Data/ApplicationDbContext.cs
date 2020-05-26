@@ -18,6 +18,7 @@ namespace EsperiaHelp.Data
         public DbSet<EsperiaHelp.Models.Subject> Subject { get; set; }
         public DbSet<EsperiaHelp.Models.Lesson> Lesson { get; set; }
         public DbSet<EsperiaHelp.Models.StudentLesson> StudentLesson { get; set; }
+        public DbSet<EsperiaHelp.Models.Class> Class { get; set; }
     
 }
 }
