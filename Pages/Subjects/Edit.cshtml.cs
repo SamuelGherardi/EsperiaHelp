@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EsperiaHelp.Pages.Subjects
 {
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;

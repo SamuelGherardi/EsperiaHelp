@@ -17,6 +17,7 @@ namespace EsperiaHelp.Models
         public Subject Subject{ get; set; }    //per i docenti (per studenti il valore sarà null)
 
         public int ClassId { get; set; }
+
         public Class Class { get; set; }        //per studenti
 
         public ICollection<Lesson> lessons;
