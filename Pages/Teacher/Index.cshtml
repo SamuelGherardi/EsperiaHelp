@@ -37,10 +37,10 @@
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StartTime)
+                    @Html.DisplayFor(modelItem => item.StartTime.TimeOfDay)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.EndTime)
+                    @Html.DisplayFor(modelItem => item.EndTime.TimeOfDay)
                 </td>
                 @foreach (var item2 in Model.Classroom)
                 {

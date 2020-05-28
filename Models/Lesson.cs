@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EsperiaHelp.Models
 {
-    public class Lesson
+    public class Lesson: IValidatableObject
     {
         [Key]
         public int Id { get; set; }
@@ -18,12 +18,14 @@ namespace EsperiaHelp.Models
 
         [Required]
         [Display(Name = "Start time")]
+        
         public DateTime StartTime { get; set; } //ora inizio
 
         [Required]
         [Display(Name = "End time")]
         public DateTime EndTime { get; set; } //ora fine
 
+        [Range(1, 8)]
         [Display(Name = "Number of participants")]
         public int N_participants { get; set; } //numero partecipanti alll'incontro
 
@@ -34,5 +36,16 @@ namespace EsperiaHelp.Models
         [Display(Name = "Classroom")]
         public int ClassroomId { get; set; }
         public Classroom Classroom { get; set; } //identificativo dell'aula dove si svolgerà l'incontro
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) //controllo data
+        {
+            if (StartTime >= EndTime)
+            {
+                yield return new ValidationResult(
+                    $"L'ora di inizio incontro deve essere minore di quella di fine!");
+            }
+        }
+
+
     }
 }

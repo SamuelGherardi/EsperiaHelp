@@ -21,13 +21,13 @@
             @Html.DisplayNameFor(model => model.Lesson.StartTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lesson.StartTime)
+            @Html.DisplayFor(model => model.Lesson.StartTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Lesson.EndTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lesson.EndTime)
+            @Html.DisplayFor(model => model.Lesson.EndTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Lesson.N_participants)

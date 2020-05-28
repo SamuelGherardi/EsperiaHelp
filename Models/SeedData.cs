@@ -48,6 +48,72 @@ namespace EsperiaHelp.Models
                     context.SaveChanges();
                 }
 
+                //creazione nomi delle materie
+                if (!context.Subject.Any())
+                {
+                    context.Subject.AddRange(
+                        new Subject
+                        {
+                            
+                            Name = "Italiano"
+                        },
+                        new Subject
+                        {
+                            
+                            Name = "Matematica"
+                        },
+                        new Subject
+                        {
+                           
+                            Name = "Storia"
+                        },
+                        new Subject
+                        {
+                            
+                            Name = "Inglese"
+                        },
+                        new Subject
+                        {
+                            
+                            Name = "Informatica"
+                        }
+                        );
+                    context.SaveChanges();
+                }
+
+                //creazione nomi delle classi
+                if (!context.Class.Any())
+                {
+                    context.Class.AddRange(
+                        new Class
+                        {
+
+                            Name = "1ID"
+                        },
+                        new Class
+                        {
+
+                            Name = "2ID"
+                        },
+                        new Class
+                        {
+
+                            Name = "3ID"
+                        },
+                        new Class
+                        {
+
+                            Name = "4ID"
+                        },
+                        new Class
+                        {
+
+                            Name = "5ID"
+                        }
+                        );
+                    context.SaveChanges();
+                }
+
 
                 //crezione account amministratori
                 var adminID = await EnsureUser(serviceProvider, testUserPw, "cisana@itispaleocapa.it", "",context);

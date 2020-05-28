@@ -31,6 +31,9 @@ namespace EsperiaHelp
         [BindProperty(SupportsGet = true)]
         public string ClassroomLesson { get; set; }
 
+        [TempData]
+        public string ErrorMessage { get; set; }
+
 
         public async Task <IActionResult> OnGetAsync()
         {
@@ -65,7 +68,23 @@ namespace EsperiaHelp
                     Lesson.ClassroomId = item.Id; //La lezione che viene creata dall'insegnante contiene la FK dell'aula dove si svolgerà
                 }
             }
-            
+
+            /*foreach(var item in _context.Lesson) //controllo per evitare sovrapposizioni tra le diverse lezioni
+            {
+                if (item.Date == Lesson.Date)
+                {
+                    if ((item.StartTime>=Lesson.StartTime)&&(item.EndTime>=Lesson.EndTime) && (Lesson.ApplicationUserId == item.ApplicationUserId) || (Lesson.StartTime >= item.StartTime) && (Lesson.EndTime >= item.EndTime)&&(Lesson.ApplicationUserId==item.ApplicationUserId))
+                    {
+                        return NotFound(); //da migliorare con messaggio di errore
+                    }
+                    else if((item.StartTime <= Lesson.StartTime) && (item.EndTime <= Lesson.EndTime) && (Lesson.ClassroomId == item.ClassroomId) || (Lesson.StartTime <= item.StartTime) && (Lesson.EndTime <= item.EndTime) && (Lesson.ClassroomId == item.ClassroomId))
+                    {
+                        return NotFound(); //da migliorare con messaggio di errore
+                    }
+
+                }
+
+            }*/
             
             _context.Lesson.Add(Lesson);
 
