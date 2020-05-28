@@ -10,7 +10,7 @@ using EsperiaHelp.Data;
 using EsperiaHelp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace EsperiaHelp
+namespace EsperiaHelp.Pages.Teacher
 {
     [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
     public class EditModel : PageModel

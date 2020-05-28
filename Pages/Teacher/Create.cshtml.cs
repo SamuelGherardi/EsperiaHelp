@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace EsperiaHelp
+namespace EsperiaHelp.Pages.Teacher
 {
     [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
     public class CreateModel : PageModel

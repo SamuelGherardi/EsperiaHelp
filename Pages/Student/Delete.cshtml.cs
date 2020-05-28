@@ -9,9 +9,9 @@ using EsperiaHelp.Data;
 using EsperiaHelp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace EsperiaHelp.Pages.Teacher
+namespace EsperiaHelp.Pages.Student
 {
-    [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
+    [Authorize(Roles = "Student")]
     public class DeleteModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;
@@ -23,7 +23,6 @@ namespace EsperiaHelp.Pages.Teacher
 
         [BindProperty]
         public Lesson Lesson { get; set; }
-        public Classroom Classroom { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,8 +31,10 @@ namespace EsperiaHelp.Pages.Teacher
                 return NotFound();
             }
 
-            Lesson = await _context.Lesson.FirstOrDefaultAsync(m => m.Id == id);
-            Classroom = await _context.Classroom.FirstOrDefaultAsync(m => m.Id == Lesson.ClassroomId);
+            Lesson = await _context.Lesson
+                .Include(l => l.ApplicationUser)
+                .Include(l => l.Classroom).FirstOrDefaultAsync(m => m.Id == id);
+
             if (Lesson == null)
             {
                 return NotFound();
@@ -52,7 +53,7 @@ namespace EsperiaHelp.Pages.Teacher
 
             if (Lesson != null)
             {
-                _context.Lesson.Remove(Lesson);
+                Lesson.N_participants = Lesson.N_participants + 1; //si aggiunge uno studente alla lezione
                 await _context.SaveChangesAsync();
             }
 

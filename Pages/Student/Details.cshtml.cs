@@ -9,9 +9,9 @@ using EsperiaHelp.Data;
 using EsperiaHelp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace EsperiaHelp.Pages.Teacher
+namespace EsperiaHelp.Pages.Student
 {
-    [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
+    [Authorize(Roles = "Student")]
     public class DetailsModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;
@@ -22,7 +22,6 @@ namespace EsperiaHelp.Pages.Teacher
         }
 
         public Lesson Lesson { get; set; }
-        public Classroom Classroom { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -31,8 +30,10 @@ namespace EsperiaHelp.Pages.Teacher
                 return NotFound();
             }
 
-            Lesson = await _context.Lesson.FirstOrDefaultAsync(m => m.Id == id);
-            Classroom = await _context.Classroom.FirstOrDefaultAsync(m => m.Id == Lesson.ClassroomId);
+            Lesson = await _context.Lesson
+                .Include(l => l.ApplicationUser)
+                .Include(l => l.Classroom).FirstOrDefaultAsync(m => m.Id == id);
+
             if (Lesson == null)
             {
                 return NotFound();
