@@ -16,7 +16,7 @@ namespace EsperiaHelp.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Student/Index");
         }
     }
 }

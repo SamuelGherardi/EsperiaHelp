@@ -42,7 +42,7 @@ namespace EsperiaHelp.Models
             if (StartTime >= EndTime)
             {
                 yield return new ValidationResult(
-                    $"L'ora di inizio incontro deve essere minore di quella di fine!");
+                    $"L'ora di inizio incontro deve essere precedente a quella di fine");
             }
         }
 

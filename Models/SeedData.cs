@@ -116,7 +116,7 @@ namespace EsperiaHelp.Models
 
 
                 //crezione account amministratori
-                var adminID = await EnsureUser(serviceProvider, testUserPw, "cisana@itispaleocapa.it", "",context);
+                var adminID = await EnsureUser(serviceProvider, testUserPw, "luigi.cisana@itispaleocapa.it", "",context);
                 await EnsureRole(serviceProvider, adminID, "Admin");
 
                 //crezione account insegnanti
