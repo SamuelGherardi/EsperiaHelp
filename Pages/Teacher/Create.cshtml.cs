@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EsperiaHelp.Pages.Teacher
 {
-    [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
+   // [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
     public class CreateModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EsperiaHelp.Pages.Student
 {
-    [Authorize(Roles = "Student")]
+   // [Authorize(Roles = "Student")]
     public class DetailsModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;

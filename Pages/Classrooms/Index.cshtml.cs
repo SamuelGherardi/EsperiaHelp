@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EsperiaHelp.Pages.Classrooms
 {
-    [Authorize]
+   // [Authorize]
     public class IndexModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;

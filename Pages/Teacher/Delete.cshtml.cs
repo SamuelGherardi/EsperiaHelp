@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EsperiaHelp.Pages.Teacher
 {
-    [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
+   // [Authorize(Roles = "Teacher")] //solamente gli insegnanti possono accedere a questa classe
     public class DeleteModel : PageModel
     {
         private readonly EsperiaHelp.Data.ApplicationDbContext _context;
