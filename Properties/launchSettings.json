@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:37088/Default",
+      "launchUrl": "http://localhost:37088",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,7 +19,7 @@
     "EsperiaHelp": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:37088/Default",
+      "launchUrl": "http://localhost:37088",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
