@@ -5,7 +5,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,100 +14,70 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     <style>
-        #form_register {
-            display: none;
+        @@media screen and (max-width: 1000px) {
+            #line{
+                display: none;
+            }
+        }
+
+        #line {
+            border-right: 3px solid #dc3545;
+            height: 350px;
+            padding: 0;
         }
     </style>
 </head>
-<body>
+<body class="bg-info">
     <div class="text-center">
-        <h1 class="display-4">Benvenuti in Esperia Help</h1>
+        <h1 class="display-4 text-white font-weight-bold">Benvenuti in Esperia Help</h1>
     </div>
 
-    <!--Registrazione-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg mt-5">
+                <h5 class="mt-4" style="color: white;">Esperia Help è il sito web che gestisce lo Sportello Help, un progetto realizzato dall'istituto Paleocapa per
+                dare una mano a tutti quegli studenti che pensano di non aver afferrato un argomento. Basterà inserire i propri dati e
+                successivamente sarà possibile prenotare tutti i corsi necessari. Potranno accedere anche i docenti per creare i 
+                rispettivi corsi.</h5>
+            </div>
 
-    <div id="form_register">
-        <div class="text-center mt-5">
-            <h4>REGISTRATI</h4>
+            <div class="col-" id="line">
+            </div>
+
+            <div class="col-lg">
+                <div class="text-center mt-5">
+                    <h4 class="text-white">ACCEDI</h4>
+                </div>
+                <form class="text-center col-lg-8 pt-2 pb-2" style="margin: 0 auto; border-radius: 10px; border: 3px solid #dc3545;" method="post">
+                    <div class="col-auto">
+                        <label class="sr-only">Email</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">@@</div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Inserisci la tua email">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only">Password</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Inserisci la tua password">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger mt-1">Accedi</button>
+                    <div class="col-auto text-left mt-2">
+                        <p style="margin: 0;"><a asp-area="Identity" asp-page="/Account/Register" style="color: white;">Non hai un account?</a></p>
+                    </div>
+                </form>
+                
+            </div>
         </div>
-        <form class="text-center col-sm-3 border border-info pt-2 pb-2" style="margin: 0 auto;">
-            <div class="col-auto">
-                <label class="sr-only">Email</label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">@@</div>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Inserisci la tua email">
-                </div>
-            </div>
-            <div class="col-auto">
-                <label class="sr-only">Password</label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Inserisci una password">
-                </div>
-            </div>
-            <div class="col-auto">
-                <label class="sr-only">Conferma password</label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Conferma password">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-danger mt-1">Iscriviti</button>
-            <div class="col-auto text-left mt-2">
-                <p style="margin: 0;"><a href="#" onclick="hideRegister()">Hai già un account?</a></p>
-            </div>
-        </form>
     </div>
 
-    <!--Login-->
-
-    <div id="form_login">
-        <div class="text-center mt-5">
-            <h4>ACCEDI</h4>
-        </div>
-        <form class="text-center col-sm-3 border border-info pt-2" style="margin: 0 auto;" method="post">
-            <div class="col-auto">
-                <label class="sr-only">Email</label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">@@</div>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Inserisci la tua email">
-                </div>
-            </div>
-            <div class="col-auto">
-                <label class="sr-only">Password</label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Inserisci una password">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-danger mt-1">Accedi</button>
-            <div class="col-auto text-left mt-2">
-                <p style="margin: 0;"><a href="#" onclick="hideLogin()">Non hai un account?</a></p>
-            </div>
-        </form>
-    </div>
-
-    <script>
-        function hideLogin() {
-            $('#form_login').hide();
-            $('#form_register').show();
-        }
-
-        function hideRegister() {
-            $('#form_login').show();
-            $('#form_register').hide();
-        }
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 </html>

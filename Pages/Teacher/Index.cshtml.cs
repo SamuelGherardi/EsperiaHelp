@@ -30,8 +30,9 @@ namespace EsperiaHelp.Pages.Teacher
 
         public async Task OnGetAsync()
         {
-            var user = await _userManager.GetUserAsync(User);
-            Lesson = await _context.Lesson.Where(s=>s.ApplicationUserId==user.Id).ToListAsync();
+            // var user = await _userManager.GetUserAsync(User);
+            // Lesson = await _context.Lesson.Where(s => s.ApplicationUserId == user.Id).ToListAsync();
+            Lesson = await _context.Lesson.ToListAsync();
             Classroom = await _context.Classroom.ToListAsync(); 
         }
     }
