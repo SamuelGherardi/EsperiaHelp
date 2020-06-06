@@ -1,11 +1,11 @@
 ﻿@page
-@model EsperiaHelp.Pages.Student.DetailsModel
+@model EsperiaHelp.Pages.Student.DeleteModel
 
 @{
-    ViewData["Title"] = "Dettagli";
+    ViewData["Title"] = "Iscrizione corso";
 }
 
-<h1 class="text-danger">Dettagli</h1>
+<h1 class="text-danger">Conferma l'iscrizione al seguente corso</h1>
 
 <div>
     <h4>Matematica</h4>
@@ -17,7 +17,7 @@
         <dd class="col-sm-10">
         </dd>
         <dt class="col-sm-2">
-            Inizio corso
+            Inizo corso
         </dt>
         <dd class="col-sm-10">
         </dd>
@@ -42,7 +42,9 @@
         <dd class="col-sm-10">
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-page="./Index">Torna ai corsi disponibili</a>
+    
+    <form method="post">
+        <a class="btn btn-success"><i class="fas fa-check" style="color: white;"></i></a> |
+        <a asp-page="./Index">Torna ai corsi disponibili</a>
+    </form>
 </div>

@@ -24,7 +24,7 @@ namespace EsperiaHelp.Pages.Student
         [BindProperty]
         public Lesson Lesson { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        /*public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
@@ -40,9 +40,14 @@ namespace EsperiaHelp.Pages.Student
                 return NotFound();
             }
             return Page();
+        }*/
+
+        public IActionResult OnGet()
+        {
+            return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        /*public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
             {
@@ -57,6 +62,11 @@ namespace EsperiaHelp.Pages.Student
                 await _context.SaveChangesAsync();
             }
 
+            return RedirectToPage("./Index");
+        }*/
+
+        public IActionResult OnPost()
+        {
             return RedirectToPage("./Index");
         }
     }

@@ -2,14 +2,14 @@
 @model EsperiaHelp.Pages.Student.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home Page";
 }
 
 <h1 class="text-danger">Corsi disponibili</h1>
 
 <div class="table-responsive mt-5">
     <table class="table table-hover text-center">
-        <thead>
+        <thead class="bg-danger text-white">
             <tr>
                 <th>
                     Data
@@ -21,7 +21,7 @@
                     Fine corso
                 </th>
                 <th>
-                    N. partecipanti
+                    Materia
                 </th>
                 <th>
                     Docente
@@ -46,9 +46,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.EndTime.TimeOfDay)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.N_participants)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
@@ -86,36 +83,89 @@
             </tr>
             }
         </tbody>-->
-        <tbody>
-            <tr>
-                <td>
-                    10/06/2020
-                </td>
-                <td>
-                    14:00
-                </td>
-                <td>
-                    16:00
-                </td>
-                <td>
-                    5
-                </td>
-                <td>
-                    Luigi Cisana
-                </td>
-                <td> 1-18
-                </td>
-                <td>
-                    <i class="fas fa-check"></i> | 
-                    <i class="fas fa-exclamation-triangle"></i> |
-                    <i class="fa fa-remove"></i>
-                </td>
-                <td>
-                    <a class="btn btn-success"><i class="fas fa-plus-circle" style="color: white;"></i></a> |
-                    <a class="btn btn-info"><i class="fas fa-info-circle" style="color: white;"></i></a>
-                </td>
-            </tr>
-        </tbody>
+    <tbody>
+        <tr>
+            <td>
+                10/06/2020
+            </td>
+            <td>
+                14:00
+            </td>
+            <td>
+                16:00
+            </td>
+            <td>
+                Matematica
+            </td>
+            <td>
+                Luigi Cisana
+            </td>
+            <td>
+                1-18
+            </td>
+            <td>
+                <i class="fas fa-check" style="color: green;"></i>
+            </td>
+            <td>
+                <a asp-page="./Check" class="btn btn-success"><i class="fas fa-plus-circle" style="color: white;"></i></a> |
+                <a asp-page="./Details" class="btn btn-info"><i class="fas fa-info-circle" style="color: white;"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                11/06/2020
+            </td>
+            <td>
+                14:00
+            </td>
+            <td>
+                16:00
+            </td>
+            <td>
+                Inglese
+            </td>
+            <td>
+                Chiara Caccianiga
+            </td>
+            <td>
+                E2-1
+            </td>
+            <td>
+                <i class="fas fa-exclamation-triangle" style="color: yellow;"></i>
+            </td>
+            <td>
+                <a asp-page="./Check" class="btn btn-success"><i class="fas fa-plus-circle" style="color: white;"></i></a> |
+                <a asp-page="./Details" class="btn btn-info"><i class="fas fa-info-circle" style="color: white;"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                12/06/2020
+            </td>
+            <td>
+                14:00
+            </td>
+            <td>
+                16:00
+            </td>
+            <td>
+                Informatica
+            </td>
+            <td>
+                Stefano Puddu
+            </td>
+            <td>
+                I1-6
+            </td>
+            <td>
+                <i class="fa fa-remove" style="color: red;"></i>
+            </td>
+            <td>
+                <a asp-page="./Check" class="btn btn-success"><i class="fas fa-plus-circle" style="color: white;"></i></a> |
+                <a asp-page="./Details" class="btn btn-info"><i class="fas fa-info-circle" style="color: white;"></i></a>
+            </td>
+        </tr>
+    </tbody>
     </table>
 </div>
 
