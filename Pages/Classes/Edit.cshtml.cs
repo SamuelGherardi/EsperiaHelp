@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using EsperiaHelp.Data;
 using EsperiaHelp.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Reflection.Metadata.Ecma335;
 
 namespace EsperiaHelp.Pages.Classes
 {
@@ -25,7 +26,7 @@ namespace EsperiaHelp.Pages.Classes
         [BindProperty]
         public Class Class { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        /*public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
@@ -40,9 +41,6 @@ namespace EsperiaHelp.Pages.Classes
             }
             return Page();
         }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -74,6 +72,16 @@ namespace EsperiaHelp.Pages.Classes
         private bool ClassExists(int id)
         {
             return _context.Class.Any(e => e.Id == id);
+        }*/
+
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            return RedirectToPage("./Index");
         }
     }
 }

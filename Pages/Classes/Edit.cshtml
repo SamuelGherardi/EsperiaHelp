@@ -2,32 +2,30 @@
 @model EsperiaHelp.Pages.Classes.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modifica";
 }
 
-<h1>Edit</h1>
+<h1 class="text-danger">Modifica classe</h1>
 
-<h4>Class</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Class.Id" />
             <div class="form-group">
-                <label asp-for="Class.Name" class="control-label"></label>
-                <input asp-for="Class.Name" class="form-control" />
-                <span asp-validation-for="Class.Name" class="text-danger"></span>
+                <label class="control-label">Classe</label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-success"><i class="fas fa-check" style="color: white;"></i></a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Torna alla lista delle classi</a>
 </div>
 
 @section Scripts {
