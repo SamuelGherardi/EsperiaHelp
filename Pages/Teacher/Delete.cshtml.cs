@@ -25,7 +25,7 @@ namespace EsperiaHelp.Pages.Teacher
         public Lesson Lesson { get; set; }
         public Classroom Classroom { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        /*public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
@@ -56,6 +56,16 @@ namespace EsperiaHelp.Pages.Teacher
                 await _context.SaveChangesAsync();
             }
 
+            return RedirectToPage("./Index");
+        }*/
+
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+
+        public IActionResult OnPost()
+        {
             return RedirectToPage("./Index");
         }
     }
