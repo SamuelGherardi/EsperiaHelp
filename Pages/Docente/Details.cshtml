@@ -2,41 +2,40 @@
 @model EsperiaHelp.Pages.Teacher.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Dettagli";
 }
 
-<h1>Details</h1>
+<h1 class="text-danger">Dettagli del corso</h1>>
 
 <div>
-    <h4>Lesson</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.Date)
+            Data
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.Date)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.StartTime)
+            Inizio corso
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.StartTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.EndTime)
+            Fine corso
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.EndTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.N_participants)
+            N. partecipanti
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.N_participants)
         </dd>
         <dt class="col-sm-2">
-            Classroom
+            Aula
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Classroom.Name)
@@ -44,6 +43,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Lesson.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Lesson.Id" class="btn btn-warning"><i class="fa fa-pencil-square-o" style="color: white;"></i></a> |
+    <a asp-page="./Index">Torna ai tuoi corsi</a>
 </div>

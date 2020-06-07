@@ -2,51 +2,50 @@
 @model EsperiaHelp.Pages.Teacher.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Cancellazione";
 }
 
-<h1>Delete</h1>
+<h1 class="text-danger">Vuoi davvero rimuovere questo corso?</h1>
+<p>Tutti i partecipanti verranno informati</p>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Lesson</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.Date)
+            Data
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.Date)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.StartTime)
+            Inizio corso
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.StartTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.EndTime)
+            Fine corso
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.EndTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.N_participants)
+            N. partecipanti
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.N_participants)
         </dd>
         <dt class="col-sm-2">
-            Classroom
+            Aula
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Classroom.Name)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Lesson.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a class="btn btn-danger"><i class="fa fa-remove" style="color: white;"></i></a> |
+        <a asp-page="./Index">Torna ai tuoi corsi</a>
     </form>
 </div>

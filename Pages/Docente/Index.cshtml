@@ -2,36 +2,37 @@
 @model EsperiaHelp.Pages.Teacher.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home Page";
     
 }
 
-<h1>Index</h1>
+<h1 class="text-danger">I tuoi corsi</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].EndTime)
-            </th>
-            <th>
-                Classroom
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Lesson)
-        {
+<div class="table-responsive mt-5">
+    <table class="table table-hover text-center">
+        <thead class="bg-danger text-white">
+            <tr>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Inizio corso
+                </th>
+                <th>
+                    Fine corso
+                </th>
+                <th>
+                    N. partecipanti
+                </th>
+                <th>
+                    Aula
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Lesson)
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Date)
@@ -42,24 +43,31 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.EndTime.TimeOfDay)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.N_participants)
+                </td>
                 @foreach (var item2 in Model.Classroom)
                 {
-                
-                    
-                        @if (item.ClassroomId == item2.Id) {
-                    <td>
-                        @Html.DisplayFor(modelItem => item2.Name)
-                    </td>
-                        }
-                }
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-         </tr>
-        }
-        
 
-    </tbody>
-</table>
+
+                    @if (item.ClassroomId == item2.Id)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item2.Name)
+                        </td>
+                    }
+                }
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa fa-pencil-square-o" style="color: white;"></i></a> |
+                <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info-circle" style="color: white;"></i></a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa fa-remove" style="color: white;"></i></a>
+            </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-5">
+    <p><a asp-page="./Create">Crea un corso</a></p>
+</div>
