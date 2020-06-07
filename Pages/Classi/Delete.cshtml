@@ -2,18 +2,16 @@
 @model EsperiaHelp.Pages.Classes.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Cancellazione";
 }
 
-<h1>Delete</h1>
+<h1 class="text-danger">Vuoi davvero rimuovere questa classe?</h1>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Class</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Class.Name)
+            Classe
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Class.Name)
@@ -22,7 +20,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Class.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a class="btn btn-danger"><i class="fa fa-remove" style="color: white;"></i></a> |
+        <a asp-page="./Index">Torna alla lista delle classi</a>
     </form>
 </div>
