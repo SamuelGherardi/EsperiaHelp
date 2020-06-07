@@ -29,16 +29,16 @@
                         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Student"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Student/Index">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Studente/Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Student/Index">I tuoi corsi</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Studente/Index">I tuoi corsi</a>
                             </li>
                         }
                         else if (User.IsInRole("Teacher"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Teacher/Index">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Docente/Index">Home</a>
                             </li>
                         }
                         else if (User.IsInRole("Admin"))
@@ -47,13 +47,13 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Classrooms/Index">Aule</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Aule/Index">Aule</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Classes/Index">Classi</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Classi/Index">Classi</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Subjects/Index">Materie</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Materie/Index">Materie</a>
                             </li>
                         }
                     </ul>

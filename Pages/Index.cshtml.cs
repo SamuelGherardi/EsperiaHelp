@@ -24,7 +24,7 @@ namespace EsperiaHelp.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToPage("./Student/Index");
+            return RedirectToPage("./Studente/Index");
         }
     }
 }
