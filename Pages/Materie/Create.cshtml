@@ -2,31 +2,30 @@
 @model EsperiaHelp.Pages.Subjects.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Creazione";
 }
 
-<h1>Create</h1>
+<h1 class="text-danger">Aggiungi una materia</h1>
 
-<h4>Subject</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Subject.Name" class="control-label"></label>
-                <input asp-for="Subject.Name" class="form-control" />
-                <span asp-validation-for="Subject.Name" class="text-danger"></span>
+                <label class="control-label">Materia</label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-success"><i class="fas fa-check" style="color: white;"></i></a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Torna alla lista delle materie</a>
 </div>
 
 @section Scripts {
