@@ -2,90 +2,78 @@
 @model EsperiaHelp.Pages.Student.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home Page";
 }
 
-<h1>Index</h1>
+<h1 class="text-danger">Corsi disponibili</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].EndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].N_participants)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].ApplicationUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lesson[0].Classroom)
-            </th>
-            <th>
-                Available
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Lesson) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime.TimeOfDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime.TimeOfDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.N_participants)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Classroom.Name)
-            </td>
-            <td>
-                @if (item.N_participants < 8)
-                {
-                    <svg class="bi bi-check-square-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                    </svg>
-                }
-                else if (item.N_participants == 7)
-                {
-                    <svg class="bi bi-exclamation-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
-                    </svg>
-                }
-                else
-                {
-                    <svg class="bi bi-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
-                        <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
-                    </svg>
-                }
-            </td>
-            <td>
-                <a asp-page="./Delete" asp-route-id="@item.Id">Registration</a>|
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive mt-5">
+    <table class="table table-hover text-center">
+        <thead class="bg-danger text-white">
+            <tr>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Inizio corso
+                </th>
+                <th>
+                    Fine corso
+                </th>
+                <th>
+                    Docente
+                </th>
+                <th>
+                    Aula
+                </th>
+                <th>
+                    Disponibilità
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Lesson) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime.TimeOfDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime.TimeOfDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classroom.Name)
+                </td>
+                <td>
+                    @if (item.N_participants < 8)
+                    {
+                        <i class="fas fa-check" style="color: green;"></i>
+                    }
+                    else if (item.N_participants == 7)
+                    {
+                        <i class="fas fa-exclamation-triangle" style="color: yellow;"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-remove" style="color: red;"></i>
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Check" asp-route-id="@item.Id" class="btn btn-success"><i class="fas fa-plus-circle" style="color: white;"></i></a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info-circle" style="color: white;"></i></a>
+                </td>
+            </tr>
+         }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-5">
+    <p><a href="#">Controlla i tuoi corsi</a></p>
+</div>

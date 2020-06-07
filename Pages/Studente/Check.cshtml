@@ -2,48 +2,46 @@
 @model EsperiaHelp.Pages.Student.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Iscrizione corso";
 }
 
-<h1>Registration</h1>
+<h1 class="text-danger">Conferma l'iscrizione al seguente corso</h1>
 
-<h3>Are you sure to sign up for this lesson?</h3>
 <div>
-    <h4>Lesson</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.Date)
+            Data
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.Date)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.StartTime)
+            Inizio corso
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.StartTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.EndTime)
+            Fine corso
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.EndTime.TimeOfDay)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.N_participants)
+            N. partecipanti
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.N_participants)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.ApplicationUser)
+            Docente
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.ApplicationUser.Email)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lesson.Classroom)
+            Aula
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lesson.Classroom.Name)
@@ -52,7 +50,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Lesson.Id" />
-        <input type="submit" value="Registration" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a class="btn btn-success"><i class="fas fa-check" style="color: white;"></i></a> |
+        <a asp-page="./Index">Torna ai corsi disponibili</a>
     </form>
 </div>
