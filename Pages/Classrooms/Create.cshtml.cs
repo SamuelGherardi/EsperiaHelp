@@ -29,9 +29,7 @@ namespace EsperiaHelp.Pages.Classrooms
         [BindProperty]
         public Classroom Classroom { get; set; }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        /*public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
@@ -41,6 +39,11 @@ namespace EsperiaHelp.Pages.Classrooms
             _context.Classroom.Add(Classroom);
             await _context.SaveChangesAsync();
 
+            return RedirectToPage("./Index");
+        }*/
+
+        public IActionResult OnPost()
+        {
             return RedirectToPage("./Index");
         }
     }

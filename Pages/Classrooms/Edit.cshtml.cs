@@ -25,7 +25,7 @@ namespace EsperiaHelp.Pages.Classrooms
         [BindProperty]
         public Classroom Classroom { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        /*public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
@@ -41,8 +41,6 @@ namespace EsperiaHelp.Pages.Classrooms
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -74,6 +72,16 @@ namespace EsperiaHelp.Pages.Classrooms
         private bool ClassroomExists(int id)
         {
             return _context.Classroom.Any(e => e.Id == id);
+        }*/
+
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            return RedirectToPage("./Index");
         }
     }
 }

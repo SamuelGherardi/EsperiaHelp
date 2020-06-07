@@ -2,35 +2,54 @@
 @model EsperiaHelp.Pages.Classrooms.IndexModel
 
 @{
-    ViewData["Title"] = "Classrooms";
+    ViewData["Title"] = "Aule";
 }
 
-<h1>Classrooms</h1>
+<h1 class="text-danger">Lista delle aule</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Classroom[0].Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+<div class="table-responsive">
+    <table class="table table-hover text-center">
+        <thead class="bg-danger text-white">
+            <tr>
+                <th>
+                    Aula
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <!--<tbody>
+    @foreach (var item in Model.Classroom) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>-->
     <tbody>
-@foreach (var item in Model.Classroom) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                I1-6
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" style="color: white;"></i></a> |
+                <a asp-page="./Delete" class="btn btn-danger"><i class="fa fa-remove" style="color: white;"></i></a>
             </td>
         </tr>
-}
+        <tr>
+            <td>
+                1-18
+            </td>
+            <td>
+                <a asp-page="./Edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" style="color: white;"></i></a> |
+                <a asp-page="./Delete" class="btn btn-danger"><i class="fa fa-remove" style="color: white;"></i></a>
+            </td>
+        </tr>
     </tbody>
-</table>
+    </table>
+</div>
