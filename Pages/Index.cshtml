@@ -19,6 +19,10 @@
             #line {
                 display: none;
             }
+
+            #textApp{
+                text-align: center;
+            }
         }
 
         #line {
@@ -35,12 +39,13 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg mt-5">
-                <h5 class="mt-4" style="color: white;">
+                <h5 id="textApp" style="color: white;">
                     Esperia Help è il sito web che gestisce lo Sportello Help, un progetto realizzato dall'istituto Paleocapa per
                     dare una mano a tutti quegli studenti che pensano di non aver afferrato un argomento. Basterà inserire i propri dati e
                     successivamente sarà possibile prenotare tutti i corsi necessari. Potranno accedere anche i docenti per creare i
                     rispettivi corsi.
                 </h5>
+                <a href="https://www.itispaleocapa.edu.it" target="_blank"><img src="~/logo.png" alt="I.T.I.S. P. Paleocapa" height="90" width="75" class="img-fluid mx-auto d-block" /></a>
             </div>
             <div class="col-" id="line">
             </div>
@@ -75,9 +80,10 @@
             </div>
         </div>
     </div>
-    <footer class="border-top footer text-muted">
-        <div class="container text-center text-white">
-            &copy; 2020 I.T.I.S. "P. Paleocapa" | <a asp-area="" asp-page="/Privacy" style="color: white;">Privacy</a>
+    <br />
+    <footer class="footer text-muted bg-dark">
+        <div class="container text-center text-white font-weight-bold">
+            &copy; 2020 I.T.I.S. "P. Paleocapa" | <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
